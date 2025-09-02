@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="martian-mike"
-run/main_scene="uid://bn7kdf1w3d4ud"
+run/main_scene="uid://drpt0tm5o8mkq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

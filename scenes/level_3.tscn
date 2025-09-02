@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chbns37j4mhob"]
+[gd_scene load_steps=10 format=3 uid="uid://chbns37j4mhob"]
 
 [ext_resource type="PackedScene" uid="uid://d11r7vlx6nmkg" path="res://scenes/bg.tscn" id="1_ah8om"]
 [ext_resource type="Script" uid="uid://dmofld8ngoddv" path="res://scripts/level.gd" id="1_hhfj6"]
@@ -8,9 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://bljrr4ol7wxft" path="res://scenes/tile_map.tscn" id="4_wae8j"]
 [ext_resource type="PackedScene" uid="uid://cvicphjs4m3q8" path="res://scenes/player.tscn" id="5_ha73p"]
 [ext_resource type="PackedScene" uid="uid://dhd03tvxll0mr" path="res://scenes/deathzone.tscn" id="6_p6vls"]
+[ext_resource type="PackedScene" uid="uid://cdu1w5moi7aks" path="res://scenes/ui_layer.tscn" id="9_ha73p"]
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource("1_hhfj6")
+is_final_level = true
+
+[node name="UI Layer" parent="." instance=ExtResource("9_ha73p")]
 
 [node name="BG" parent="." instance=ExtResource("1_ah8om")]
 bg_texture = ExtResource("3_wae8j")
