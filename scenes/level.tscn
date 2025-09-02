@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn7kdf1w3d4ud"]
+[gd_scene load_steps=12 format=3 uid="uid://bn7kdf1w3d4ud"]
 
 [ext_resource type="Script" uid="uid://dmofld8ngoddv" path="res://scripts/level.gd" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://b7qlutctvnnb4" path="res://scenes/level_2.tscn" id="2_olg7q"]
 [ext_resource type="PackedScene" uid="uid://cvicphjs4m3q8" path="res://scenes/player.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dhd03tvxll0mr" path="res://scenes/deathzone.tscn" id="3_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://b068ghd858dy5" path="res://scenes/jumppad.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://m7aw0gt6w4gw" path="res://scenes/spikeball.tscn" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://pkosahkcbtew" path="res://scenes/saw.tscn" id="5_ppgk2"]
@@ -10,19 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://cuu6ypul3wbpw" path="res://scenes/start.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://d0230psdve30i" path="res://scenes/exit.tscn" id="9_8c41q"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w8frs"]
-
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w7c3h")
+next_level = ExtResource("2_olg7q")
 
-[node name="Ground" type="StaticBody2D" parent="."]
-
-[node name="Deathzone" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(369.5, 395)
-shape = SubResource("WorldBoundaryShape2D_w8frs")
+[node name="Deathzone" parent="." instance=ExtResource("3_t1rx8")]
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -56,7 +50,3 @@ position = Vector2(313, 176)
 
 [node name="Player" parent="." instance=ExtResource("2_w7c3h")]
 position = Vector2(72, 208)
-gravity = 600
-speed = 150
-
-[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
